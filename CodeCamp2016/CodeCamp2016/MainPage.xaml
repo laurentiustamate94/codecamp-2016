@@ -8,6 +8,46 @@
     mc:Ignorable="d">
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <Grid.ChildrenTransitions>
+            <TransitionCollection>
+                <EntranceThemeTransition/>
+            </TransitionCollection>
+        </Grid.ChildrenTransitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
 
+        <TextBlock Grid.Row="0" x:Name="pageTitle" Text="CodeCamp 2016 Demo" Style="{StaticResource HeaderTextBlockStyle}" 
+                        IsHitTestVisible="false" TextWrapping="NoWrap" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+
+        <StackPanel Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" Orientation="Horizontal" Margin="12,0,0,0">
+            <Button x:Name="getShirtColorButton" Content="Get shirt color" Click="GetShirtColorButton_Click" Margin="0,0,30,20" Width="120"/>
+            <Button x:Name="readMeSomeTextButton" Content="Read me some text" Click="ReadMeSomeTextButton_Click" Margin="0,0,30,20" Width="150"/>
+            <Button x:Name="amIFamiliarButton" Content="Am I familiar?" Click="AmIFamiliarButton_Click" Margin="0,0,30,20" Width="120"/>
+            <Button x:Name="whatsMyMoodButton" Content="What's my mood?" Click="WhatsMyMoodButton_Click" Margin="0,0,30,20" Width="140"/>
+            <Button x:Name="resetButton" Content="Reset" Click="ResetButton_Click" Margin="0,0,30,20" Width="120"/>
+        </StackPanel>
+
+        <StackPanel Grid.Row="3" HorizontalAlignment="Center" VerticalAlignment="Center" Orientation="Horizontal" Margin="0,0,0,20">
+            <StackPanel>
+                <TextBlock x:Name="previewTitle" Grid.Row="0" Grid.Column="0" Text="Preview"  Height="30" HorizontalAlignment="Center" Margin="0,20,0,0" Visibility="Visible"/>
+                <Canvas x:Name="cameraCanvas" Grid.Row="1" Grid.Column="0" Width="480" Height="320" Background="Gray"  Margin="0,0,0,0" Visibility="Visible">
+                    <CaptureElement x:Name="cameraElement" Width="480" Height="320" HorizontalAlignment="Left" Visibility="Visible"/>
+                </Canvas>
+                <MediaElement x:Name="mediaElementUI" Visibility="Collapsed" />
+            </StackPanel>
+        </StackPanel>
+
+        <TextBlock Grid.Row="4" Text="Result" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="19,-10,0,0"/>
+
+        <ScrollViewer Grid.Row="5" Margin="12,10,12,0" HorizontalAlignment="Center" VerticalAlignment="Center" >
+            <TextBox
+				x:Name="interogationResult" TextWrapping="Wrap" IsReadOnly="True" Height="200" Width="480" HorizontalAlignment="Left" VerticalAlignment="Bottom" 
+				ScrollViewer.HorizontalScrollBarVisibility="Disabled" ScrollViewer.VerticalScrollBarVisibility="Auto"/>
+        </ScrollViewer>
     </Grid>
 </Page>
